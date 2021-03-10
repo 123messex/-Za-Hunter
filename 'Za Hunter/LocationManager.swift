@@ -9,6 +9,7 @@ import Foundation
 import CoreLocation
 class LocationManager: NSObject, CLLocationManagerDelegate, ObservableObject {
     var locationManager = CLLocationManager()
+    var geoCoder = CLGeocoder()
     override init() {
          super.init()
          locationManager.delegate = self

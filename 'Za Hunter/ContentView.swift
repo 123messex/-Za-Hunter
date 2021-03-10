@@ -22,10 +22,9 @@ struct ContentView: View {
     )
     @State private var places = [Place]()
     var body: some View {
-        Map(
-            coordinateRegion: $region,
+        Map(coordinateRegion: $region,
             interactionModes: .all,
-            showUserLocation: true,
+            showsUserLocation: true,
             userTrackingMode: $userTrackingMode,
             annotationItems: places) { place in
             MapAnnotation(coordinate: place.annotation.coordinate) {
@@ -41,7 +40,7 @@ struct ContentView: View {
         let searchRequest = MKLocalSearch.Request()
         searchRequest.naturalLanguageQuery = item
         searchRequest.region = region
-        let search = MKLocalSearch(request: <#T##MKLocalSearch.Request#>)
+        let search = MKLocalSearch(request: searchRequest)
         search.start { (response, error) in
             if let response = response {
                 for mapItem in response.mapItems {
